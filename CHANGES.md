@@ -1,3 +1,8 @@
+# coq-lsp 0.1.8: Layers
+-----------------------
+
+ - completion and notation display
+
 # coq-lsp 0.1.7: Just-in-time
 -----------------------------
 

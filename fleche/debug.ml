@@ -12,6 +12,9 @@ let send = false || all || lsp
 let read = false || all || lsp
 let lsp_init = false || all || lsp
 
+(* finding tokens from a position *)
+let find = false || all
+
 (* Parsing (this is a bit expensive as it will call the printer *)
 let parsing = false || all
 

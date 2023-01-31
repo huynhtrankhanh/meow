@@ -69,7 +69,7 @@ Dune.
     ```
 
 2. Initialize submodules (the `main` branch uses some submodules, which we plan to get rid of soon. Branches `v8.x` can already skip this step.)
-  
+
     ```sh
     make submodules-init
     ```
@@ -85,7 +85,7 @@ Alternatively, you can also use the regular `dune build @check` etc... targets.
 
 #### Nix
 
-We have a Nix flake that you can use. 
+We have a Nix flake that you can use.
 
 1. Dependencies: for development it suffices to run `nix develop` to spawn a shell with the corresponding dependencies.
 
@@ -100,7 +100,7 @@ We have a Nix flake that you can use.
     ```
 
 2. Initialize submodules (the `main` branch uses some submodules, which we plan to get rid of soon. Branches `v8.x` can already skip this step.)
-  
+
     ```sh
     make submodules-init
     ```
@@ -154,7 +154,7 @@ Some tips:
 
 [ocamlformat]: https://github.com/ocaml-ppx/ocamlformat
 
-### Releasing
+## Releasing
 
 `coq-lsp` is released using `dune-release tag` + `dune-release`.
 
@@ -174,6 +174,11 @@ The checklist for the release as of today is the following:
 - `dune release` for each version that should to the main opam repos
 - [optional] update pre-release packages to coq-opam-archive
 - [important] bump `version.ml` and `package.json` version string
+
+## Worker version (and debugging tips)
+
+See https://github.com/ocsigen/js_of_ocaml/issues/410 for debugging
+tips with `js_of_ocaml`.
 
 ## Client guide (VS Code Extension)
 

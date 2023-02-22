@@ -2,9 +2,17 @@ import * as Protocol from "vscode-languageserver-protocol";
 import * as LanguageServer from "./LanguageServer";
 
 test("Fully checks ex1.v", async () => {
-
   let languageServer = LanguageServer.start();
   await languageServer.initialize({ trace: "verbose" });
+
+  languageServer.onNotification(Protocol.LogTraceNotification.type, (e) => {
+    console.log(e.message);
+    if (e.verbose) console.log(e.verbose);
+  });
+
+  languageServer.onNotification(Protocol.LogMessageNotification.type, (e) => {
+    console.log(e.message);
+  });
 
   await languageServer.sendNotification(
     Protocol.DidOpenTextDocumentNotification.type,
@@ -12,6 +20,7 @@ test("Fully checks ex1.v", async () => {
       textDocument: LanguageServer.openExample("ex1.v"),
     }
   );
+
   let p = new Promise<Protocol.PublishDiagnosticsParams>((resolve) => {
     languageServer.onNotification(
       Protocol.PublishDiagnosticsNotification.type,

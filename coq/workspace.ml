@@ -152,7 +152,7 @@ let dirpath_of_uri ~uri =
 (* This is a bit messy upstream, as -I both extends Coq loadpath and OCAMLPATH
    loadpath *)
 let findlib_init ~ml_include_path ~ocamlpath:_ =
-  let ocamlpath = Some "C:\coq-2022_10\home\User\.opam\__coq-platform.2022.09.1~8.16~2022.09\lib" in
+  let ocamlpath = Some "C:\\coq-2022_10\\home\\User\\.opam\\__coq-platform.2022.09.1~8.16~2022.09\\lib" in
   let config, ocamlpath =
     match ocamlpath with
     | None -> (None, [])

@@ -28,9 +28,9 @@ test("Fully checks ex1.v", async () => {
     );
   });
 
-  const checkDiags = async (params: Protocol.PublishDiagnosticsParams) => {
-    if (params.diagnostics.length == 0) return "ok";
-    else throw "wrong number of diags";
+  const checkDiags = async (diags: Protocol.PublishDiagnosticsParams) => {
+    if (diags.diagnostics.length == 0) return "ok";
+      else throw { msg : "wrong number of diags"; diags };
   };
 
   await p.then(checkDiags).finally(languageServer.exit);

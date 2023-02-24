@@ -116,12 +116,18 @@ let describe { coqlib; kind; vo_load_path; ml_include_path; require_libs; _ } =
   let c11 = System.all_subdirs ~unix_path:coqlib in
   let c12 = System.all_subdirs ~unix_path:(Filename.concat coqlib "..") in
   let c13 = System.all_subdirs ~unix_path:(Filename.(concat (concat coqlib "..") "..")) in
+  let c11' = System.all_subdirs ~unix_path:coqlib in
+  let c12' = System.all_subdirs ~unix_path:(coqlib ^ "/..") in
+  let c13' = System.all_subdirs ~unix_path:(coqlib ^ "/../..") in
   let c2 = Sys.readdir coqlib in
   let c3 = System.all_in_path c11 "Prelude.vo" in
-  let base = Format.asprintf "l1:%a@\nl2:%a@\nl3:%a@\n%a@\n%a@\n@\n%s"
+  let base = Format.asprintf "l1:%a@\nl2:%a@\nl3:%a@\nl1':%a@\nl2':%a@\nl3':%a@\n%a@\n%a@\n@\n%s"
       Format.(pp_print_list pp_as) c11
       Format.(pp_print_list pp_as) c12
       Format.(pp_print_list pp_as) c13
+      Format.(pp_print_list pp_as) c11'
+      Format.(pp_print_list pp_as) c12'
+      Format.(pp_print_list pp_as) c13'
       Format.(pp_print_list pp_print_string) (Array.to_list c2)
       Format.(pp_print_list pp_ap) c3
       base in
